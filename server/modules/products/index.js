@@ -23,8 +23,6 @@ const handlers = {
         search = '',
         categoryId // ex: filter by categoryId
       } = req.query
-      console.log("___________")
-      console.log(req.query)
       if (pageSize == '') {
         pageSize = 10
       }
@@ -34,7 +32,6 @@ const handlers = {
       count = !!count
 
       let skip = (pageIndex - 1) * pageSize
-      console.log(`skip: ${skip}`)
       let limit = pageSize
       let conditions = {}
       if (search) {
@@ -47,14 +44,12 @@ const handlers = {
 
       if (count) {
         let count = await model.countDocuments(conditions)
-        console.log(count)
-        console.log(pageSize)
+       
         let result = Math.ceil(count / pageSize);
-        console.log(`result ${result}`)
+        
         res.json({ result })
       } else {
         let skip = (pageIndex - 1) * pageSize
-        console.log(`skip: ${skip}`)
         let limit = pageSize
         
         let items = await model
@@ -89,6 +84,7 @@ const handlers = {
       let item = await model.create(data)
 
       res.json(item)
+      console.log(data)
     } catch (err) {
       next(err)
     }
@@ -123,6 +119,15 @@ const handlers = {
     } catch (err) {
       next(err)
     }
+  },
+  async test(req, res, next) {
+    console.log('a')
+    console.log(req.body)
+    res.json('ok')
+    let originalFileName = req.file.originalname
+    console.log(originalFileName)
+    let srcImage = "http://localhost:3000/images/" + req.file.originalname
+    console.log(srcImage)
   }
 }
 

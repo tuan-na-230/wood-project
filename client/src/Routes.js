@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-// import Home from './pages/Home'
+import Home from './pages/Home'
 
 class Routes extends Component {
   constructor(props) {
@@ -10,7 +10,7 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
-        {/* <Route path="/"><Home /></Route> */}
+        <Route path="/"><Home /></Route>
       </Switch>
     )
   }

@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const isRunningDevServer = process.env.WEBPACK_DEV_SERVER
 
 module.exports = {
-  entry: path.join(__dirname, 'src/main.js'),
+  entry: path.join(__dirname,'src/main.js'),
   output: {
     filename: 'assets/js/[name].[contenthash].js',
     publicPath: '/'

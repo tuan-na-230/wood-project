@@ -1,14 +1,15 @@
 require("./connect-mongodb")
 const express = require('express')
 const bodyParser = require("body-parser")
-const path = require('path')
-const PORT = 3000
+const path = require('path');
+const cors = require('./cors')
+const PORT = 3000;
 const app = express();
 const router = require("./routes")
 
 app.use(express.static('../admin'))
 app.use(bodyParser.json())
-
+app.use(cors)
 app.use(router)
 
 app.use((err, req, res, next) => {
