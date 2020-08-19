@@ -19,16 +19,13 @@ class UploadImage extends Component {
     }
 
     fileUploadHandler = (event) => {
-        // this.setState({
-        //     selectedFile: event.target.files[0]
-        // })
         this.setState({
             urlSourceImage: config.domain + "/images/" + this.state.selectedFile.name
         })
         console.log(this.state.urlSourceImage)
         const fd = new FormData();
         fd.append("image", this.state.selectedFile)
-        let url = config.domain + '/products/test'
+        let url = config.domain + '/products/uploadImage'
         axios({
             method: 'post',
             url: url,
@@ -42,7 +39,7 @@ class UploadImage extends Component {
         return (
             <div> 
                 <input type="file" onChange={this.fileSelectedHandler} accept="image/*" />
-                <button onClick={this.fileUploadHandler}>Upload</button>
+                <button className="btn btn-primary" onClick={this.fileUploadHandler}>Upload</button>
                 <img src={this.state.urlSourceImage} alt="anh" />
             </div>
         )

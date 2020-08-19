@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import config from '../../config'
+import { Link } from 'react-router-dom'
 
 class NavBar extends Component {
     constructor(props) {
@@ -9,23 +11,21 @@ class NavBar extends Component {
         return (
             <div>
                 <div className="header">
-                    <nav className="navbar navbar-expand-md sticky-top navbar-light bg-light " style={{ position: 'fixed', backgroundColor: 'rgba(255,255,255,0.4) !important', width: '100%', zIndex: 999, top: 0 }}>
-                        <a className="navbar-brand col-md-1" href="#"><img className="opacity-1" src="../../assets/images/abc.jpg" alt="" id="ImgLogo" style={{ height: '50px', width: '50px' }} /></a>
+                    <nav className="navbar navbar-expand-md sticky-top navbar-light bg-light " style={{ position: 'sticky', backgroundColor: 'rgba(255,255,255,0.4) !important', width: '100%', zIndex: 999, top: 0 }}>
+                        <a className="navbar-brand col-md-1" href="#"><img className="opacity-1" src={config.domain + '/src/assets/images/abc.jpg'} alt="" id="ImgLogo" style={{ height: '50px', width: '50px' }} /></a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon" />
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav mr-auto">
                                 <li className="nav-item active col-md-3">
-                                    <a className="nav-link" href="#">Trang Chủ <span className="sr-only">(current)</span></a>
+                                    <Link className="nav-link" to="/">Trang chủ</Link>
                                 </li>
                                 <li className="nav-item active col-md-3">
-                                    <a className="nav-link" href="#">Về chúng tôi</a>
+                                    <Link className="nav-link" to="/about">Về chúng tôi</Link>
                                 </li>
                                 <li className="nav-item dropdown active col-md-3">
-                                    <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Sản Phẩm
-                                    </a>
+                                    <Link to="/product" className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sản Phẩm</Link>
                                     <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a className="dropdown-item" href="#">Action</a>
                                         <a className="dropdown-item" href="#">Another action</a>
@@ -34,7 +34,7 @@ class NavBar extends Component {
                                     </div>
                                 </li>
                                 <li className="nav-item active col-md-2">
-                                    <a className="nav-link disabled" href="#" tabIndex={-1} aria-disabled="true">Liên hệ</a>
+                                    <Link className="nav-link" to="/contact">Liên hệ</Link>
                                 </li>
                                 <li className="nav-item active col-md-2">
                                     <a className="nav-link disabled" href="#" tabIndex={-1} aria-disabled="true"><i className="fas fa-phone-square-alt">Hotline:0328883094 </i></a>
@@ -47,7 +47,6 @@ class NavBar extends Component {
                         </div>
                     </nav>
                 </div>
-
             </div>
         )
     }

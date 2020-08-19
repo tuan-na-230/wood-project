@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import config from '../../config'
 
 class Footer extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class Footer extends Component {
                         <hr />
                         <div className="row">
                             <div className="col-md-4">
-                                <img src="./image/tải xuống.png" alt="" />
+                                <img src={config.domain + '/src/assets/images/logo.png'} alt="" />
                             </div>
                             <div className="col-md-4">
                                 <ul>
@@ -50,8 +51,8 @@ class Footer extends Component {
                         <hr />
                         <div className="row">
                             <div className="col-md-4">
-                                <img src="./image/facebook (1).png" alt="facebook icon" className="contact_icon" />
-                                <img src="./image/youtube (1).png" alt="youtube icon" className="contact_icon" />
+                                <img src={config.domain + '/src/assets/images/logoFacebook.png'} alt="facebook icon" className="contact_icon" />
+                                <img src={config.domain + '/src/assets/images/logoYoutube.png'} alt="youtube icon" className="contact_icon" />
                             </div>
                             <div className="col-md-8">
                                 <ul>

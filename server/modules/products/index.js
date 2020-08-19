@@ -16,19 +16,15 @@ const handlers = {
     try {
       let {
         pageIndex = 1,
-        pageSize = 10,
+        pageSize = 5,
         count,
-        sort = 1,
-        sortBy = 'name',
+        sort = 'asc',
+        sortBy = 'title',
         search = '',
         categoryId // ex: filter by categoryId
       } = req.query
-      if (pageSize == '') {
-        pageSize = 10
-      }
       pageIndex = parseInt(pageIndex)
       pageSize = parseInt(pageSize)
-      sort = parseInt(sort)
       count = !!count
 
       let skip = (pageIndex - 1) * pageSize
@@ -36,22 +32,16 @@ const handlers = {
       let conditions = {}
       if (search) {
         // find item with title contains search string
-        conditions.name = new RegExp(search, 'i')
+        conditions.title = new RegExp(search, 'i')
       }
-      // if(categoryId) {
-      //   conditions.categories = mongoose.Types.ObjectId(categoryId)
-      // }
+      if (categoryId) {
+        conditions.categories = mongoose.Types.ObjectId(categoryId)
+      }
 
       if (count) {
         let count = await model.countDocuments(conditions)
-       
-        let result = Math.ceil(count / pageSize);
-        
-        res.json({ result })
+        res.json({ count })
       } else {
-        let skip = (pageIndex - 1) * pageSize
-        let limit = pageSize
-        
         let items = await model
           .find(conditions)
           .skip(skip)

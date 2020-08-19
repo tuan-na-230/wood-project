@@ -4,10 +4,11 @@ const path = require('path')
 const multer = require('multer')
 
 const productHandlers = require("./modules/products")
+const categoryHandlers = require("./modules/category")
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '../admin/images')
+    cb(null, '../admin/src/assets/images')
   },
   filename: function (req, file, cb) {
     console.log(new Date().toISOString() + '_' + file.originalname)
@@ -27,9 +28,7 @@ router.get("/", (req, res) => {
   res.send('a')
 })
 
-router.get("/products/test/:id", productHandlers.test)
-
-router.post("/products/test", upload.single('image'), productHandlers.test)
+router.post("/products/uploadImage", upload.single('image'), productHandlers.test)
 
 router.post("/products", productHandlers.create)
   
@@ -40,5 +39,16 @@ router.get("/products/:id", productHandlers.findOne)
 router.delete("/products/:id", productHandlers.delete)
 
 router.put("/products",productHandlers.update)
+
+//category
+router.get('/api/category', categoryHandlers.findMany)
+
+router.get('/api/category/:id', categoryHandlers.findOne)
+
+router.post('/api/category', categoryHandlers.create)
+
+router.put('/api/category', categoryHandlers.update)
+
+router.delete('/api/category/:id', categoryHandlers.delete)
 
 module.exports = router

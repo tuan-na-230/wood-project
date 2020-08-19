@@ -1,0 +1,22 @@
+
+.admin-control {
+    width: 100%;
+    height: 100vh;
+    background: url('https://image.freepik.com/free-photo/business-work-concept_1388-81.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.each-row {
+    height: 50px;
+    margin: 5px 10px 5px 10px;
+    text-align: center;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.each-row:hover {
+    cursor: pointer;
+    background-color: blue
+}
