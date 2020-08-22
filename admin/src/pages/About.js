@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CHeader from '../components/pieces/NavBar'
 import CFooter from '../components/pieces/Footer'
 import CIntrodure from '../components/parts/Introdure'
+import CItemCategory from '../components/parts/ItemCategory'
 class About extends Component {
     constructor(props) {
         super(props)
@@ -14,6 +15,7 @@ class About extends Component {
                 <div className="container">
                     <CIntrodure />
                 </div>
+                <CItemCategory />
                 <CFooter />
             </div>
         )

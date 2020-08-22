@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import axios from 'axios'
+import config from '../../config'
 
 class customerSendMail extends Component {
     constructor(props) {
@@ -6,20 +8,19 @@ class customerSendMail extends Component {
         this.state = {
             customerMail: {},
         }
+        this.sendEmail = this.sendEmail.bind(this)
     }
-
-    fileUploadHandler = (event) => {
-        this.setState({
-            customerMail: event.value
-        })
-        console.log(this.state.customerMail)
-        const fd = new FormData();
-        fd.append("customerMail", this.state.customerMail)
-        let url = config.domain + '/customer/customerSendMail'
+    
+    sendEmail = (event) => {
+        event.preventDefault();
+        console.log('a')
+        let result = document.getElementById('inputEmail').value
+        let data = {email: result}
+        let url = config.domain + "/api/email"
         axios({
             method: 'post',
             url: url,
-            data: fd
+            data: data
         }) 
             .then(res => {console.log(res)})
             .catch(error => {console.log(error)})
@@ -28,11 +29,11 @@ class customerSendMail extends Component {
     render() {
         return (
             <div>
-                <form className="form-inline">
+                <form id="formSendMail" className="form-inline">
                     <div className="form-group mx-sm-3 mb-2">
                         <input type="email" className="form-control" id="inputEmail" placeholder="Email" />
                     </div>
-                    <button type="submit" className="btn btn-primary mb-2">Gửi</button>
+                    <button type="submit" className="btn btn-primary mb-2" onClick={this.sendEmail}>Gửi</button>
                 </form>
             </div>
         )

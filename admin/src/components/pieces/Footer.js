@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import CustomerSendMail from './customerSendMail'
 import config from '../../config'
 
 class Footer extends Component {
@@ -19,12 +20,7 @@ class Footer extends Component {
                                 <p>Đăng ký để cập nhật thông tin mới nhất về khuyến mãi, sản phẩm và sự kiện.</p>
                             </div>
                             <div className="col-md-5">
-                                <form className="form-inline">
-                                    <div className="form-group mx-sm-3 mb-2">
-                                        <input type="email" className="form-control" id="inputEmail" placeholder="Email" />
-                                    </div>
-                                    <button type="submit" className="btn btn-primary mb-2">Gửi</button>
-                                </form>
+                                <CustomerSendMail />
                             </div>
                         </div>
                         <hr />

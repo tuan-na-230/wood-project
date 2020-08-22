@@ -4,6 +4,7 @@ import CHeader from '../components/pieces/NavBar'
 import FlexImages from '../components/pieces/FlexImages'
 import CFooter from '../components/pieces/Footer'
 import CProductPortfolio from '../components/parts/ProductPortfolio'
+import CItemCategory from '../components/parts/ItemCategory'
 
 class Home extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Home extends Component {
         <div className="container">
           <CProductPortfolio />
         </div>
+        <CItemCategory />
         <CFooter />
       </div>
     )

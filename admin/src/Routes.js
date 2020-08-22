@@ -4,6 +4,8 @@ import HomeAdmin from './pages/HomeAdmin'
 import Home from './pages/Home'
 import About from './pages/about'
 import Contact from './pages/Contact'
+import test from './pages/Test'
+import Category from './pages/Category'
 
 class Routes extends Component {
   constructor(props) {
@@ -13,10 +15,12 @@ class Routes extends Component {
   render() {
     return (
       <Switch>
+        <Route path="/category/:id" component={Category} />
         <Route path="/contact" component={Contact} />
         <Route path="/admin" component={HomeAdmin} />
-        <Route path="/about" component={About} exact />
-        <Route path="/" component={Home} exact />
+        <Route path="/about" component={About} />
+        <Route path="/" component={Category} exact />
+        {/* category */}
       </Switch>
     )
   }

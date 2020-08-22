@@ -1,17 +1,37 @@
 import React, { Component } from 'react'
+import './main.scss'
+import { Link } from 'react-router-dom'
+import Home from '../../../pages/Home'
+import ReactDOM from 'react-dom'
 
-class ReactComponent extends Component {
+class ItemCategory extends Component {
     constructor(props) {
         super(props)
     }
 
+    toCategory = () => {
+        console.log(this.props.link)
+        // ReactDOM.render(<Home />, document.getElementById('app'))
+    }
+
     render() {
+        let img = this.props.img;
+        let categoryName = this.props.name
+        let link = this.props.link
         return (
-            <div> 
-                <img src="https://hungtuy.com.vn/mediacenter/media/images/1498/menu/icons/s900_0/gach-op-lat-2-1590406300.jpg"></img>
-            </div>
+            <div>
+                <Link to={"/" + link }>
+                    <div className="my-container" onClick={this.toCategory}>
+                        <img src={img} alt="Avatar" className="image" alt={categoryName} style={{ width: '100%' }} />
+                        <div className="middle">
+                            <p className="text-no-opacity">{categoryName}</p>
+                            <div className="text">TÌM HIỂU THÊM</div>
+                        </div>
+                    </div>
+                </Link>
+            </div >
         )
     }
 }
 
-export default ReactComponent
+export default ItemCategory

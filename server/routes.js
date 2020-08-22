@@ -5,6 +5,8 @@ const multer = require('multer')
 
 const productHandlers = require("./modules/products")
 const categoryHandlers = require("./modules/category")
+const emailCutomerHandlers = require("./modules/emailCustomer")
+const userHandlers = require("./modules/user")
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -50,5 +52,13 @@ router.post('/api/category', categoryHandlers.create)
 router.put('/api/category', categoryHandlers.update)
 
 router.delete('/api/category/:id', categoryHandlers.delete)
+
+//email
+router.get('/api/email', emailCutomerHandlers.findMany)
+
+router.post('/api/email', emailCutomerHandlers.create)
+
+//user
+router.post('/api/user', userHandlers.create)
 
 module.exports = router

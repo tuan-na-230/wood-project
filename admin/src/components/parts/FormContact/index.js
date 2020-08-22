@@ -1,14 +1,35 @@
 import React, { Component } from 'react'
-
+import CButton from '../../pieces/Button'
+import config from '../../../config'
+import axios from 'axios'
 class FormContact extends Component {
     constructor(props) {
         super(props)
+    }
+    getInfor =(e) =>{
+        e.preventDefault()
+         let data ={
+             name: document.getElementById('fullName').value,
+             address : document.getElementById("address").value,
+             phoneNumber : document.getElementById('phoneNumber').value,
+             email : document.getElementById('email').value,
+             content : document.getElementById('content').value
+         }
+         axios.request({
+            url: config.domain + '/api/user',
+            method: 'POST',
+            data: data,
+        })
+            .then(res => {
+                console.log(res)
+            })
+            .catch(error => { console.log(error) })
     }
 
     render() {
         return (
             <div>
-                <form>
+                <form id="formAddInfo">
                     <div className="row">
                         <div className="col-sm-6">
                             <div className="form-group">
@@ -40,11 +61,10 @@ class FormContact extends Component {
                             </div>
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-primary">Gửi yêu cầu</button>
+                    <button type="submit" onClick={this.getInfor} className="btn btn-primary">Gửi yêu cầu</button>
                 </form>
             </div>
         )
     }
 }
-
 export default FormContact

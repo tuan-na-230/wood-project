@@ -19,10 +19,11 @@ const handlers = {
         pageSize = 5,
         count,
         sort = 'asc',
-        sortBy = 'title',
+        sortBy = 'name',
         search = '',
-        categoryId // ex: filter by categoryId
+        category // ex: filter by categoryId
       } = req.query
+      console.log(req.query)
       pageIndex = parseInt(pageIndex)
       pageSize = parseInt(pageSize)
       count = !!count
@@ -34,8 +35,8 @@ const handlers = {
         // find item with title contains search string
         conditions.title = new RegExp(search, 'i')
       }
-      if (categoryId) {
-        conditions.categories = mongoose.Types.ObjectId(categoryId)
+      if (category) {
+        conditions.categories = mongoose.Types.ObjectId(category)
       }
 
       if (count) {
