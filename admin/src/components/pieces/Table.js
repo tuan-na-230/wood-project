@@ -8,6 +8,18 @@ class Table extends Component {
   renderList(list) {
     return list.map((item, index) => {
       let { _id, name, price, image, description, status, category } = item
+      if(!price) {
+        let { _id, name, address, phoneNumber, email, content } = item
+        return (
+          <tr key={index}>
+            <td>{name}</td>
+            <td>{address}</td>
+            <td>{phoneNumber}</td>
+            <td>{email}</td>
+            <td>{content}</td>
+          </tr>
+        )
+      } else {
       return (
         <tr key={index}>
           <td>{name}</td>
@@ -18,6 +30,7 @@ class Table extends Component {
           <td>{category}</td>
         </tr>
       )
+      }
     })
   }
 

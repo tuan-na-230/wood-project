@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CustomerSendMail from './customerSendMail'
 import config from '../../config'
+import {Link} from 'react-router-dom'
 
 class Footer extends Component {
     constructor(props) {
@@ -56,6 +57,7 @@ class Footer extends Component {
                                     <p>Địa chỉ : nhà  thầy minh</p>
                                     <p>Hotline : 0123939293</p>
                                     <p>Email : abc@gmail.com</p>
+                                    <li><Link to="/admin">Admin</Link></li>
                                 </ul>
                             </div>
                         </div>

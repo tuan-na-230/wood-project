@@ -24,3 +24,85 @@ hr{
     border: 1px solid pink;
 }
 
+div a {
+    text-decoration: none;
+    padding: 15px;
+    display:inline-block;
+  }
+  .card-header {
+      text-decoration: none;
+      background: #fafafa;
+      position: relative;
+  }
+  .card-header>a {
+   width: 100%;
+  }
+  .card-header>a:active {
+      color: brown;
+     }
+  .card-header>a:hover{
+      text-decoration: none;
+      color: brown;
+  }
+  @media only screen and (max-width: 768px){
+      .img{
+          float: left;
+          position: relative;
+      }
+      #contact{
+          position: absolute;
+          top: 5%;
+          right: 0%;
+      }
+      .nav-item{
+          position: relative;
+      }
+      .dropdown-menu{
+          position: absolute;
+          left: 50%;
+      }
+  }
+  @media only screen and (max-width: 320px){
+      .dropdown-menu{
+          width: 290px;
+      }
+  }
+  .card-header:hover {
+      text-decoration: none;
+      box-shadow: 0 0 10px #ccc;
+      position: relative;
+      background: blanchedalmond !important;
+  }
+  .card-header>a>i{
+      position: absolute;
+      right: 10%;
+      top: 45%;
+  }
+  .card-header>i:hover{
+      text-decoration: none;
+  }
+  .nav-item{
+      padding-left: 10px;
+      position: relative;
+  }
+  .dropdown-item{
+      border: 1px solid #fafafa;
+  }
+  .dropdown-item:hover{
+      box-shadow: 1px 1px 1px 1px #c3c3c3;
+      color: brown;
+      background-color: #dddddd;
+  }
+  .dropdown-menu{
+      width: 320px;
+      position: absolute;
+      top: 55px;
+  }
+  .nav-item:hover{
+      cursor: pointer;
+  }
+  .submit{
+      width: 77px;
+      background-color:blanchedalmond;
+      border: 1px solid #fff;
+  }

@@ -61,4 +61,6 @@ router.post('/api/email', emailCutomerHandlers.create)
 //user
 router.post('/api/user', userHandlers.create)
 
+router.get('/api/user', userHandlers.findMany)
+
 module.exports = router
