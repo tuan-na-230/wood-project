@@ -20,7 +20,7 @@
   flex-direction: column;
   transition: 1s ease;
   position: absolute;
-  top: 70%;
+  bottom: 1%;
   transform: translate(0, 0);
   text-align: center;
 }
@@ -43,7 +43,7 @@
   opacity: 0;
   color: white;
   font-size: 14px;
-  padding: 10px 10px;
+  padding: 10px 0px 10px 0px;
   border: 1px solid white;
 }
 

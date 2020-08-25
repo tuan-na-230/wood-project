@@ -16,7 +16,7 @@ class Category extends Component {
             <div>
                 <CHeader />
                 <div className="container">
-                    <p>{id}</p>
+                    <h3 style={{"textAlign": "center"}}>{id}</h3>
                     <CProductByCategory nameCategory={id} />
                 </div>
                 <CFooter />

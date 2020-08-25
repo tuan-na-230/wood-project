@@ -22,7 +22,7 @@ class ProductByCategory extends Component {
 
     getProductByCategory = () => {
         let categoryId = this.state.nameCategory;
-        let url = config.domain + "/products?categoryId=" + categoryId + "&pageSize=null"
+        let url = config.domain + "/products?category=" + categoryId + "&pageSize=null"
         axios({
             method: 'get',
             url: url,
@@ -35,25 +35,13 @@ class ProductByCategory extends Component {
 
     showListProduct = () => {
         let listProduct = this.state.listProduct;
-        console.log(listProduct)
         let show = []
-        show.push(<p>a</p>)
         for (let i = 0; i < Math.ceil(listProduct.length / 3); i++) {
-            show.push(<CShowRowProduct item1={listProduct[i * 3]} item2={listProduct[i * 3 + 1]} item3={listProduct[i * 3 + 2]} key={i} />)
+            show.push(<CItemProduct item1={listProduct[i * 3]} item2={listProduct[i * 3 + 1]} item3={listProduct[i * 3 + 2]} key={i} />)
         }
-
-        console.log(show)
-        return show
+        return (show)
     }
 
-    // test = (list) => {
-    //     list = list || []
-    //     return list.map((item, index) => {
-    //         return (
-    //             {item}
-    //         )
-    //     })
-    // }
 
     render() {
         return (

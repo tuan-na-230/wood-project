@@ -27,7 +27,7 @@ class Footer extends Component {
                         <hr />
                         <div className="row">
                             <div className="col-md-4">
-                                <img src={config.domain + '/src/assets/images/logo.png'} alt="" />
+                                <img style={{"width": "100px"}} src={config.domain + '/src/assets/images/logo.png'} alt="" />
                             </div>
                             <div className="col-md-4">
                                 <ul>

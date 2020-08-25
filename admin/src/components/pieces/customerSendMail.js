@@ -10,20 +10,22 @@ class customerSendMail extends Component {
         }
         this.sendEmail = this.sendEmail.bind(this)
     }
-    
+
     sendEmail = (event) => {
         event.preventDefault();
         console.log('a')
         let result = document.getElementById('inputEmail').value
-        let data = {email: result}
+        let data = {
+            email: result
+        }
         let url = config.domain + "/api/email"
         axios({
             method: 'post',
             url: url,
             data: data
-        }) 
-            .then(res => {console.log(res)})
-            .catch(error => {console.log(error)})
+        })
+            .then(res => { console.log(res) })
+            .catch(error => { console.log(error) })
     }
 
     render() {

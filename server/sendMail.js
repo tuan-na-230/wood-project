@@ -1,4 +1,4 @@
-
+const user = require('./modules/user')
 const nodemailer = require('nodemailer')
 const EMAIL = 'tuan.na.230@gmail.com'
 const PASSWORD = 'anhtuanqwe'
@@ -14,7 +14,6 @@ const handlers = {
                 pass: PASSWORD
             }
         })
-        console.log('vao')
         let { to, subject, text, html } = data
         if (!to) {
             throw new Error(`Missing info 'to'!`)
@@ -39,6 +38,10 @@ const handlers = {
                 console.log({ message: 'Success!', info })
             }
         })
+    },
+    sendMailWhenCreateProduct () {
+        let listEmail = user.findEmailOfUser()
+        console.log('a')
     }
 }
 

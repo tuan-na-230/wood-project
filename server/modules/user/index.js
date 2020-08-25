@@ -16,7 +16,7 @@ const handlers = {
     try {
       let {
         pageIndex = 1,
-        pageSize = 5,
+        pageSize = null,
         count,
         sort = 'asc',
         sortBy = 'name',
@@ -84,14 +84,11 @@ const handlers = {
       next(err)
     }
   },
-  async test(req, res, next) {
-    console.log('a')
-    console.log(req.body)
-    res.json('ok')
-    let originalFileName = req.file.originalname
-    console.log(originalFileName)
-    let srcImage = "http://localhost:3000/images/" + req.file.originalname
-    console.log(srcImage)
+  async findEmailOfUser() {
+    let items = await model
+          .find(conditions)
+
+        return(items)
   }
 }
 

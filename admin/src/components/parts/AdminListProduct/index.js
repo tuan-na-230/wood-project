@@ -9,7 +9,7 @@ class AdmidListProduct extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            header: ['name', 'price', 'image', 'description', 'status', 'category'],
+            header: ['Name', 'Price', 'Image', 'Description', 'Status', 'Category', 'Action'],
             pageIndex: 1,
             pageSize: 10,
             search: '',
@@ -73,8 +73,7 @@ class AdmidListProduct extends Component {
             })
     }
 
-    render() {
-        
+    render() {  
         let { list, header } = this.state
         let { count, pageIndex, pageSize } = this.state
         console.log(count, pageIndex, pageSize)

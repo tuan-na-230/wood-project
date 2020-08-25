@@ -27,8 +27,6 @@ const handlers = {
       console.log(temp)
       sendMailHandler.sendMail(temp)
       let email = await model.create(data)
-      res.json(email)
-
     } catch(err) {
       next(err)
     }

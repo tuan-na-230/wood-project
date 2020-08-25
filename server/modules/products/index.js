@@ -1,6 +1,7 @@
 const model = require('./model')
 const mongoose = require('mongoose')
 const { json } = require('body-parser')
+const sentMailHandler = require('../../sendMail')
 
 const handlers = {
   /**
@@ -16,7 +17,7 @@ const handlers = {
     try {
       let {
         pageIndex = 1,
-        pageSize = 5,
+        pageSize = 9,
         count,
         sort = 'asc',
         sortBy = 'name',
@@ -33,10 +34,10 @@ const handlers = {
       let conditions = {}
       if (search) {
         // find item with title contains search string
-        conditions.title = new RegExp(search, 'i')
+        conditions.name = new RegExp(search, 'i')
       }
       if (category) {
-        conditions.categories = mongoose.Types.ObjectId(category)
+        conditions.category = new RegExp(category, 'i')
       }
 
       if (count) {
@@ -73,7 +74,7 @@ const handlers = {
     try {
       let data = req.body
       let item = await model.create(data)
-
+      sentMailHandler.sendMailWhenCreateProduct()
       res.json(item)
       console.log(data)
     } catch (err) {
@@ -84,7 +85,8 @@ const handlers = {
     try {
       let data = req.body
       let id = data._id
-
+      console.log(data)
+      console.log(id)
       if (!id) {
         throw new Error('Missing item id!')
       }
