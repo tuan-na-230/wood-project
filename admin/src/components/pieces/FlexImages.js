@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import '../../scss/main.scss'
 import config from '../../config'
-
 class FlexImages extends Component {
     constructor(props) {
         super(props)
     }
-
     render() {
         return (
             <div>
@@ -17,25 +15,27 @@ class FlexImages extends Component {
                         <li data-target="#carouselExampleCaptions" data-slide-to={2} />
                     </ol>
                     <div className="carousel-inner">
-                        <div className="carousel-item active" data-interval={5000} style={{"width": '100vw', 'height': '100vh'}}>
-                            <img src={config.domain + '/src/assets/images/anh-nen-header.jpg'} className="d-block w-100" alt="..." />
+                        <div className="carousel-item " data-interval={5000} style={{ "width": '100vw', 'height': '100vh' }}>
+                            <img src="https://hungtuy.com.vn/mediacenter/media/images/1498/menu/icons/s900_0/noi-that-1-1590202169.jpg" className="d-block w-100" alt="..." />
                             <div className="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                            </div>
+                                    <h4>Phòng Khách</h4>
+                                    <p>Phong cách sang trọng, tiện nghi</p>
+                                </div>
                         </div>
-                        <div className="carousel-item" data-interval={5000} style={{"width": '100vw', 'height': '100vh'}}>
-                            <img src={config.domain + '/src/assets/images/anh-nen-header.jpg'} className="d-block w-100" alt="..." />
+                        <div className="carousel-item active" data-interval={5000} style={{ "width": '100vw', 'height': '100vh' }}>
+                            <img src="https://hungtuy.com.vn/mediacenter/media/images/1498/category/sizechart/gach-op-lat-title-1590663154.jpg" className="d-block w-100" alt="..." />
                             <div className="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            </div>
+                                    <h4>Sofa</h4>
+                                    <p>Phong cách hiện đại , hòa nhoáng</p>
+                                </div>
                         </div>
-                        <div className="carousel-item" data-interval={5000} style={{"width": '100vw', 'height': '100vh'}}>
+                        <div className="carousel-item" data-interval={5000} style={{ "width": '100vw', 'height': '100vh' }}>
                             <img src="https://hungtuy.com.vn/mediacenter/media/images/1498/category/sizechart/show1-1521885974.jpg" className="d-block w-100" alt="..." />
                             <div className="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                            <div className='content-img'>
+                                    <h4>Đèn trang trí</h4>
+                                    <p>Nhập khẩu từ châu Âu với nhiều mẫu hiện đai</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -52,5 +52,4 @@ class FlexImages extends Component {
         )
     }
 }
-
 export default FlexImages

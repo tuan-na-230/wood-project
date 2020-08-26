@@ -15,13 +15,16 @@ class AdmidListProduct extends Component {
             search: '',
             list: [],
             filter: {
-                categoryId: null // Dropdown
-              }
+                category: null // Dropdown
+            }
         }
-
         this.callApiList = this.callApiList.bind(this)
         this.callApiCount = this.callApiCount.bind(this)
         this.setPageConfig = this.setPageConfig.bind(this)
+    }
+
+    getDerivedStateFromProps () {
+        this.callApiList()
     }
 
     componentDidMount() {
@@ -29,28 +32,28 @@ class AdmidListProduct extends Component {
         this.callApiCount()
     }
 
-    setPageConfig(config = { pageIndex, pageSize, search, filter}) {
+    setPageConfig(config = { pageIndex, pageSize, search, filter }) {
         this.setState(config)
-      }
+    }
 
     callApiCount() {
         let { search, filter } = this.state
         let queryParams = {
-          count: true,
-          search,
-          categoryId: filter.categoryId || ''
+            count: true,
+            search,
+            category: filter.category || ''
         }
-    
+
         axios.request({
-          url: config.domain + '/products',
-          method: "GET",
-          params: queryParams
+            url: config.domain + '/products',
+            method: "GET",
+            params: queryParams
         })
-          .then(res => {
-            let count = res.data.count || 0
-            this.setState({ count })
-          })
-      }
+            .then(res => {
+                let count = res.data.count || 0
+                this.setState({ count })
+            })
+    }
 
     callApiList() {
         let { pageIndex, pageSize, search, filter } = this.state
@@ -58,8 +61,9 @@ class AdmidListProduct extends Component {
             pageIndex,
             pageSize,
             search,
-            categoryId: filter.categoryId || ''
+            category: filter.category || ''
         }
+        console.log('vao')
 
         axios.request({
             url: config.domain + '/products',
@@ -67,25 +71,24 @@ class AdmidListProduct extends Component {
             params: queryParams,
         })
             .then(res => {
-                console.log('response', res)
-                let list = res.data
-                this.setState({ list })
+                let list1 = res.data
+                this.setState({ list: list1 })
             })
     }
 
-    render() {  
+    render() {
         let { list, header } = this.state
         let { count, pageIndex, pageSize } = this.state
         console.log(count, pageIndex, pageSize)
         return (
             <div>
-                <Table header={header} list={list} />
+                <Table header={header} list={list} callApiUpdate={this.callApiList} />
                 <TableControls
                     count={count}
                     pageSize={pageSize}
                     setPageConfig={this.setPageConfig}
                     pageIndex={pageIndex}
-                    callApiList={this.callApiCount} />
+                    callApiList={this.callApiList} />
             </div>
         )
     }

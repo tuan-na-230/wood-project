@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 const schema = require("./scheme")
 
-const MODEL_NAME = 'contact'
-const COLLECTION_NAME = 'contact' 
+const MODEL_NAME = 'user'
+const COLLECTION_NAME = 'user' 
 
 const model = mongoose.model(
     MODEL_NAME,

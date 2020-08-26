@@ -12,9 +12,7 @@ class About extends Component {
         return (
             <div>
                 <CHeader />
-                <div className="container">
-                    <CIntrodure />
-                </div>
+                <CIntrodure />
                 <CItemCategory />
                 <CFooter />
             </div>

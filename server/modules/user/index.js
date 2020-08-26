@@ -66,6 +66,7 @@ const handlers = {
   async create(req, res, next) {
     try {
       let data = req.body
+      console.log(data)
       let item = await model.create(data)
 
       res.json(item)
@@ -86,8 +87,7 @@ const handlers = {
   },
   async findEmailOfUser() {
     let items = await model
-          .find(conditions)
-
+          .find()
         return(items)
   }
 }

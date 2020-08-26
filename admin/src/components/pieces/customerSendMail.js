@@ -16,15 +16,23 @@ class customerSendMail extends Component {
         console.log('a')
         let result = document.getElementById('inputEmail').value
         let data = {
-            email: result
+            email: result,
+            address: '',
+            phoneNumber: parseInt(''),
+            content: '',
+            name: '',
         }
-        let url = config.domain + "/api/email"
+        let url = config.domain + "/api/user"
         axios({
             method: 'post',
             url: url,
             data: data
         })
-            .then(res => { console.log(res) })
+            .then(res => {
+                console.log(res)
+                document.getElementById('inputEmail').value = ''
+                window.alert("Cảm ơn bạn đã liên hệ với chúng tôi!");
+            })
             .catch(error => { console.log(error) })
     }
 

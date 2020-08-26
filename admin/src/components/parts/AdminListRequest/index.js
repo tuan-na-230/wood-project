@@ -11,7 +11,7 @@ class AdmidListRequest extends Component {
         this.state = {
             header: ['name', 'address', 'phoneNumber', 'email', 'content'],
             pageIndex: 1,
-            pageSize: 10,
+            pageSize: null,
             search: '',
             list: [],
         }

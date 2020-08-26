@@ -24,7 +24,7 @@ class productPortfolio extends Component {
                     <div className="col-sm-4">
                         <CItemCategory name="nội thất phòng ngủ" link="category/noi-that-phong-ngu" img="https://hungtuy.com.vn/mediacenter/media/images/1498/menu/icons/s900_0/gach-op-lat-2-1590406300.jpg"></CItemCategory>                    </div>
                     <div className="col-sm-4">
-                        <CItemCategory name="nội thất phòng thờ" link="category/noi-that-phong-tho" img="https://hungtuy.com.vn/mediacenter/media/images/1498/menu/icons/s900_0/tu-lanh-3-1590456103.jpg"></CItemCategory>                    </div>
+                        <CItemCategory name="nội thất phòng thờ" link="category/noi-that-ngoai-troi" img="https://hungtuy.com.vn/mediacenter/media/images/1498/menu/icons/s900_0/tu-lanh-3-1590456103.jpg"></CItemCategory>                    </div>
                     <div className="col-sm-4">
                         <CItemCategory name="nội thất trẻ em" link="category/noi-that-tre-em" img="https://hungtuy.com.vn/mediacenter/media/images/1498/menu/icons/s900_0/dong-ho-1-1590202988.jpg"></CItemCategory>                    </div>
                 </div>
@@ -34,7 +34,7 @@ class productPortfolio extends Component {
                     <div className="col-sm-4">
                         <CItemCategory name="nội thất văn phòng" link="category/noi-that-van-phong" img="https://hungtuy.com.vn/mediacenter/media/images/1498/menu/icons/s900_0/cong-tac-01-1590405975.jpg"></CItemCategory>                    </div>
                     <div className="col-sm-4">
-                        <CItemCategory name="tiện ích khác" link="category/tien-ich-khac" img="https://hungtuy.com.vn/mediacenter/media/images/1498/menu/icons/s900_0/tham-trang-tri-2-1590456870.jpg"></CItemCategory>                    </div>
+                        <CItemCategory name="tiện ích khác" link="category/noi-that-phong-cho" img="https://hungtuy.com.vn/mediacenter/media/images/1498/menu/icons/s900_0/tham-trang-tri-2-1590456870.jpg"></CItemCategory>                    </div>
                 </div>
 
             </div>

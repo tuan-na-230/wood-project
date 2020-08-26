@@ -32,6 +32,7 @@ class FromAddAndUpdate extends Component {
                 console.log(res)
             })
             .catch(error => { console.log(error) })
+        $('#modalAddProduct').modal('hide');
     }
 
     fileSelectedHandler = (event) => {
@@ -45,9 +46,9 @@ class FromAddAndUpdate extends Component {
         this.setState({
             urlSourceImage: config.domain + "/src/assets/images/" + this.state.selectedFile.name
         })
-        setTimeout(()=>{
-            document.getElementById('imageUploaded').src=this.state.urlSourceImage;
-        },1000)
+        setTimeout(() => {
+            document.getElementById('imageUploaded').src = this.state.urlSourceImage;
+        }, 1000)
         const fd = new FormData();
         fd.append("image", this.state.selectedFile)
         let url = config.domain + '/products/uploadImage'
@@ -59,6 +60,7 @@ class FromAddAndUpdate extends Component {
             .then(
                 res => {
                     console.log(res)
+                    window.alert("Thêm sản phẩm thành công!")
                 }
             )
             .catch(error => { console.log(error) })
@@ -86,23 +88,36 @@ class FromAddAndUpdate extends Component {
                                         <div className="modal-body">
                                             <div className="form-group">
                                                 <label htmlFor="name">Tên sản phẩm</label>
-                                                <textarea className="form-control" id="name" defaultValue={""} />
+                                                <input type="text" className="form-control" id="name" defaultValue={""} />
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="price">Giá</label>
-                                                <textarea className="form-control" id="price" defaultValue={""} />
+                                                <input type="number" className="form-control" id="price" defaultValue={""} />
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="description">description</label>
-                                                <textarea className="form-control" id="description" defaultValue={""} />
+                                                <input type="text" className="form-control" id="description" defaultValue={""} />
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="status">status</label>
-                                                <textarea className="form-control" id="status" defaultValue={""} />
+                                                <input type="text" className="form-control" id="status" defaultValue={""} />
                                             </div>
-                                            <div className="form-group">
+                                            {/* <div className="form-group">
                                                 <label htmlFor="category">category</label>
-                                                <textarea className="form-control" id="category" defaultValue={""} />
+                                                <input type="text" className="form-control" id="category" defaultValue={""} />
+                                            </div> */}
+                                            <div class="form-group">
+                                                <label for="category">Example select</label>
+                                                <select class="form-control" id="category">
+                                                    <option>noi-that-phong-khach</option>
+                                                    <option>noi-that-phong-ngu</option>
+                                                    <option>noi-that-phong-bep</option>
+                                                    <option>noi-that-phong-cho</option>
+                                                    <option>noi-that-tre-em</option>
+                                                    <option>noi-that-ngoai-troi</option>
+                                                    <option>noi-that-van-phong</option>
+                                                    <option>sofa</option>
+                                                </select>
                                             </div>
                                             <div>
                                                 <input type="file" id="image" onChange={this.fileSelectedHandler} accept="image/*" />

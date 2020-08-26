@@ -4,7 +4,7 @@ import CButton from './Button'
 class TableControls extends Component {
   constructor(props = { count, pageIndex, pageSize, setPageConfig, callApiList }) {
     super(props)
-
+    console.log(props)
     this.toPage = this.toPage.bind(this)
   }
 
@@ -23,12 +23,13 @@ class TableControls extends Component {
   }
 
   toPage(newPageIndex, maxPage) {
+    console.log(newPageIndex)
     let currentPageIndex = this.props.pageIndex
     if (newPageIndex != currentPageIndex
       && newPageIndex > 0
       && newPageIndex <= maxPage) {
-
-      this.props.setPageConfig({ pageIndex: newPageIndex })
+      let config = { pageIndex: newPageIndex }
+      this.props.setPageConfig(config)
       this.props.callApiList()
     }
   }
@@ -36,7 +37,7 @@ class TableControls extends Component {
   render() {
     let { count, pageIndex, pageSize } = this.props
     let maxPage = Math.ceil(count / pageSize)
-    let pageIndexNumbers = this.genPageIndexNumbers(pageIndex, maxPage)
+    let pageIndexNumbers = this.genPageIndexNumbers(1, maxPage)
     return (
       <div className="table-controls">
         <CButton onClick={() => this.toPage(pageIndex - 1, maxPage)}>&lt;&lt;</CButton>
@@ -44,6 +45,7 @@ class TableControls extends Component {
         {pageIndexNumbers.map((number, index) => {
           let isCurrentPageIndex = (number == pageIndex)
           let clickHandler = () => {
+
             this.toPage(number, maxPage)
           }
           return isCurrentPageIndex

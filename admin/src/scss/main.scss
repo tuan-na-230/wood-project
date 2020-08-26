@@ -2,14 +2,12 @@ img {
     width: 100px;
     height: auto;
 }
-
 .container-fluid{
     width: 100%;
 }
 .header {
     font-weight: bold ;
     text-align: center;
-    
 }
 .footer{
     padding-top: 20px;
@@ -23,7 +21,6 @@ img {
 hr{
     border: 1px solid pink;
 }
-
   .card-header {
       text-decoration: none;
       background: #fafafa;
@@ -88,10 +85,13 @@ hr{
       color: brown;
       background-color: #dddddd;
   }
-  .dropdown-menu{
+  .nav-item .dropdown-menu{
       width: 320px;
       position: absolute;
       top: 55px;
+  }
+  .nav-item .dropdown-menu a:hover{
+   color: brown;
   }
   .nav-item:hover{
       cursor: pointer;
@@ -102,4 +102,34 @@ hr{
       border: 1px solid #fff;
   }
 
-  
+  .content-img{
+      color: brown;
+  }
+  .header .navbar{
+    //   display: none;
+    position: fixed;
+    background-color: rgba(255,255,255,0.4) !important ;
+    width: 100%;
+    z-index: 999;
+    top: 0
+  }
+  #contact{
+      padding-top: 400px;
+  }
+#text {
+    width: 300px;
+    border: 1px solid white;
+   }
+   #text:hover {
+       cursor: pointer;
+      }
+
+//Catergory
+.productCatergory{
+    padding-top: 400px;
+    padding-bottom: 100px;
+}
+h2{
+    color: brown;
+    text-align: center;
+}

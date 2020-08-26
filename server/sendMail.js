@@ -39,9 +39,21 @@ const handlers = {
             }
         })
     },
-    sendMailWhenCreateProduct () {
-        let listEmail = user.findEmailOfUser()
-        console.log('a')
+    async sendMailWhenCreateProduct(data) {
+        let listEmail = await user.findEmailOfUser()
+        for (let i = 0; i < listEmail.length; i++) {
+            const element = listEmail[i]
+            let dataSend = {
+                to: element.email,
+                subject: 'Sản phẩm mới',
+                text: "Sản phẩm mới",
+                html: `
+                <h3>${data.name}</h3>
+                <p>${data.price}</p>
+                <img src="${data.image}" alt="img"/>`
+            }
+            this.sendMail(dataSend)
+        }
     }
 }
 

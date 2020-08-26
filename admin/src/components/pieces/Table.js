@@ -4,7 +4,7 @@ import config from '../../config'
 import CUpdateProduct from '../../components/parts/FormUpdate'
 
 class Table extends Component {
-  constructor(props = { list, header }) {
+  constructor(props = { list, header, callApiUpdate }) {
     super(props)
 
     this.fix = this.fix.bind(this)
@@ -12,7 +12,7 @@ class Table extends Component {
   }
 
   fix = (e) => {
-    return  <CUpdateProduct idProduct={e.target.id} />
+    return <CUpdateProduct idProduct={e.target.id} />
   }
 
   del = (e) => {
@@ -28,7 +28,10 @@ class Table extends Component {
       method: 'delete',
       url: url,
     })
-      .then(res => { console.log(res) })
+      .then(res => {
+        console.log(res)
+        this.props.callApiUpdate()
+      })
       .catch(error => { console.log(error) })
   }
 
@@ -45,8 +48,7 @@ class Table extends Component {
             <td>{email}</td>
             <td>{content}</td>
             <td>
-              <button className="btn btn-warning">Sửa</button>
-              <button className="btn btn-danger">Xóa</button>
+              <button className="btn btn-secondary">Ẩn</button>
             </td>
           </tr>
         )
@@ -55,12 +57,12 @@ class Table extends Component {
           <tr key={index}>
             <td>{name}</td>
             <td>{price}</td>
-            <td>{image}</td>
+            <td><img src={image} style={{"height": '50px', "width":"auto"}}/></td>
             <td>{description}</td>
             <td>{status}</td>
             <td>{category}</td>
             <td>
-              <CUpdateProduct idProduct={_id} />
+              <CUpdateProduct idProduct={_id} callApiUpdate={this.props.callApiUpdate} />
               <button id={_id} className="btn btn-danger" onClick={this.del}>Xóa</button>
             </td>
           </tr>

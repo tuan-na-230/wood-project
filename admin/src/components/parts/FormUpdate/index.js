@@ -28,14 +28,14 @@ class UpdateForm extends Component {
             .then(
                 res => {
                     console.log(res)
-                    this.setState({ productSelected: res.data })
+                    this.setState({ productSelected: res.data, urlSourceImage: res.data.image })
                 }
             )
             .catch(error => { console.log(error) })
     }
 
     updateProduct = () => {
-        let form = document.getElementById("formUpdateProduct"+this.state.id);
+        let form = document.getElementById("formUpdateProduct" + this.state.id);
         let data = {
             _id: this.state.id,
             name: form.name.value,
@@ -53,6 +53,10 @@ class UpdateForm extends Component {
         })
             .then(res => {
                 console.log(res)
+                this.props.callApiUpdate();
+                let id = "#modalUpdateProduct" + this.state.id
+                $(id).modal('hide');
+                window.alert("Sửa sản phẩm thành công!")
             })
             .catch(error => { console.log(error) })
     }
@@ -109,11 +113,11 @@ class UpdateForm extends Component {
                                         <div className="modal-body">
                                             <div className="form-group">
                                                 <label htmlFor="name">Tên sản phẩm</label>
-                                                <textarea className="form-control" id="name" defaultValue={name} />
+                                                <input className="form-control" id="name" defaultValue={name} />
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="price">Giá</label>
-                                                <textarea className="form-control" id="price" defaultValue={price} />
+                                                <input className="form-control" id="price" defaultValue={price} />
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="description">description</label>
@@ -121,11 +125,24 @@ class UpdateForm extends Component {
                                             </div>
                                             <div className="form-group">
                                                 <label htmlFor="status">status</label>
-                                                <textarea className="form-control" id="status" defaultValue={status} />
+                                                <input className="form-control" id="status" defaultValue={status} />
                                             </div>
-                                            <div className="form-group">
+                                            {/* <div className="form-group">
                                                 <label htmlFor="category">category</label>
                                                 <textarea className="form-control" id="category" defaultValue={category} />
+                                            </div> */}
+                                            <div class="form-group">
+                                                <label for="category">Example select</label>
+                                                <select class="form-control" id="category">
+                                                    <option>noi-that-phong-khach</option>
+                                                    <option>noi-that-phong-ngu</option>
+                                                    <option>noi-that-phong-bep</option>
+                                                    <option>noi-that-phong-cho</option>
+                                                    <option>noi-that-tre-em</option>
+                                                    <option>noi-that-ngoai-troi</option>
+                                                    <option>noi-that-van-phong</option>
+                                                    <option>sofa</option>
+                                                </select>
                                             </div>
                                             <div>
                                                 <input type="file" id="image" onChange={this.fileSelectedHandler} accept="image/*" />
@@ -135,7 +152,7 @@ class UpdateForm extends Component {
                                         </div>
                                         <div className="modal-footer">
                                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" className="btn btn-primary" onClick={this.updateProduct}>Tạo</button>
+                                            <button type="button" className="btn btn-warning" onClick={this.updateProduct}>Sửa</button>
                                         </div>
                                     </form>
                                 </div>

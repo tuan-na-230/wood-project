@@ -22,6 +22,14 @@ class FormContact extends Component {
         })
             .then(res => {
                 console.log(res)
+                
+                document.getElementById('fullName').value = ''
+                document.getElementById('address').value = ''
+                document.getElementById('phoneNumber').value = ''
+                document.getElementById('email').value = ''
+                document.getElementById('content').value = ''
+                window.alert("Cảm ơn bạn đã liên hệ với chúng tôi!");
+                
             })
             .catch(error => { console.log(error) })
     }
@@ -29,6 +37,7 @@ class FormContact extends Component {
     render() {
         return (
             <div>
+                <h3 style={{ "color": "rgb(139, 0, 40)" }}>LIÊN HỆ</h3>
                 <form id="formAddInfo">
                     <div className="row">
                         <div className="col-sm-6">

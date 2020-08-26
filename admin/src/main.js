@@ -3,10 +3,13 @@ import './scss/main.scss'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
-// import 'bootstrap/dist/js/bootstrap.min.js'
+import history from './history'
+import {Router} from 'react-router-dom'
 import App from './App'
 
 ReactDOM.render(
-  <App />,
+  (<Router history={history}>
+    <App />
+  </Router>),
   document.querySelector('#app')
 )

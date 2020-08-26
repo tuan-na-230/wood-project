@@ -64,7 +64,6 @@ const handlers = {
       let id = req.params.id
       let item = await model
         .findById(id)
-      console.log(item)
       res.json(item)
     } catch (err) {
       next(err)
@@ -74,7 +73,7 @@ const handlers = {
     try {
       let data = req.body
       let item = await model.create(data)
-      sentMailHandler.sendMailWhenCreateProduct()
+      sentMailHandler.sendMailWhenCreateProduct(data)
       res.json(item)
       console.log(data)
     } catch (err) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CustomerSendMail from './customerSendMail'
 import config from '../../config'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Footer extends Component {
     constructor(props) {
@@ -27,7 +27,7 @@ class Footer extends Component {
                         <hr />
                         <div className="row">
                             <div className="col-md-4">
-                                <img style={{"width": "100px"}} src={config.domain + '/src/assets/images/logo.png'} alt="" />
+                                <img style={{ "width": "100px" }} src={config.domain + '/src/assets/images/logo.png'} alt="" />
                             </div>
                             <div className="col-md-4">
                                 <ul>
@@ -53,8 +53,8 @@ class Footer extends Component {
                             </div>
                             <div className="col-md-8">
                                 <ul>
-                                    <p><i className="far fa-copyright" /> 2020 ABC</p>
-                                    <p>Địa chỉ : nhà  thầy minh</p>
+                                    <p><i className="far fa-copyright" /> ©2020 Shop Đồ Gỗ</p>
+                                    <p>Địa chỉ : 211 Bạch Mai, Ô Cầu Dền, Thanh Nhàn, Hai Bà Trưng, Hà Nội</p>
                                     <p>Hotline : 0123939293</p>
                                     <p>Email : abc@gmail.com</p>
                                     <li><Link to="/admin">Admin</Link></li>
